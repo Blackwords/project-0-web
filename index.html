@@ -3,41 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="hero">
     <header>
-        <h1>Project 0: Професійний Aufbereitung у Німеччині</h1>
+        <h1>Professionelle Fahrzeugaufbereitung in </h1>
+        <a href="#" class="btn-primary">Termin vereinbaren</a>
     </header>
+    </div>
     <section>
-        <h2>Чому обирають нас? Наш досвід в Aufbereitung</h2>
-        <p>Наш сервіс "Project 0" спеціалізується на повній підготовці авто до продажу та довготривалому захисті, використовуючи лише німецькі преміум-матеріали.</p>
-        <p>Ми не просто миємо — ми відновлюємо ідеальний вигляд вашого авто!</p>
+        <h2>Warum uns wählen? Unsere Erfahrung in der Aufbereitung</h2>
+        <p>Unser Service "Project 0" ist auf die komplette Fahrzeugaufbereitung und den Langzeitschutz spezialisiert. Wir verwenden ausschließlich deutsche Premium-Materialien</p>
+        <p>Wir waschen nicht nur – wir stellen den perfekten Look Ihres Autos wieder her!</p>
     </section>
     <section>
-        <h2>Наші основні послуги</h2>
-        <h3>Екстер'єр (Зовнішній вигляд)</h3>
-        <ul>
-            <li>Полірування кузова (Polieren)</li>
-            <li>Керамічний захист (Keramikversiegelung)</li>
-            <li>Видалення подряпин (Kratzerentfernung)</li>
-        </ul>
-        <h3>Інтер'єр (Салон)</h3>
-        <ul>
-            <li>Глибока хімчистка салону (Innenreinigung)</li>
-            <li>Очищення шкіри та пластику</li>
-            <li>Видалення неприємних запахів</li>
-        </ul>
+    <h2>Unsere Hauptdienstleistungen</h2>
+    
+    <div class="service-container">
         
-    </section>
+        <div class="service-card">
+            <h3>Basic Pflege</h3>
+            <ul>
+                <li><i class="fas fa-hand-sparkles"></i> Handwäsche</li>
+                <li><i class="fas fa-air-freshener"></i> Innenraum saugen</li>
+                <li><i class="fas fa-tint"></i> Scheibenreinigung</li>
+            </ul>
+            <p class="price">30 €</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Intensiv Pflege</h3>
+            <ul>
+                <li><i class="fas fa-car-side"></i> Gründliche Handwäsche</li>
+                <li><i class="fas fa-spray-can"></i> Intensive Innenreinigung</li>
+                <li><i class="fas fa-couch"></i> Polster- & Teppichreinigung</li>
+                <li><i class="fas fa-ring"></i> Felgen- und Einstiegsreinigung</li>
+            </ul>
+            <p class="price">60 - 100 €</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Glanz & Schutz</h3>
+            <ul>
+                <li><i class="fas fa-star"></i> Premium Handwäsche</li>
+                <li><i class="fas fa-tools"></i> Hochglanz-Finish</li>
+                <li><i class="fas fa-mask"></i> Lackversiegelung (1 Stufe)</li>
+                <li><i class="fas fa-eye"></i> Entfernung feiner Kratzer</li>
+            </ul>
+            <p class="price">80 - 110 €</p>
+        </div>
+        <div class="service-card">
+            <h3>Komplettaufbereitung</h3>
+            <ul>
+                <li><i class="fas fa-handshake"></i> Das "Rundum-Sorglos"-Paket</li>
+                <li><i class="fas fa-box-open"></i> Kombination aus Intensiv & Glanz</li>
+                <li><i class="fas fa-hammer"></i> Lackdefektkorrektur (klein)</li>
+                <li><i class="fas fa-layer-group"></i> Langzeitversiegelung (1 Jahr)</li>
+            </ul>
+            <p class="price">150 - 200 €</p>
+        </div>
+        
+    </div>
+</section>
     <footer>
-        <h3>Контакти та інформація</h3>
-        <p>Місцезнаходження: Wuppertal, Німеччина</p>
-        <p>Email: ваш.email@example.com</p>
-        <p>Телефон: +49 123 456789</p>
-        <hr>
-        <p>© 2025 Project 0: Aufbereitung. Усі права захищені.</p>
+        <h2>Kontakt & Anfahrt</h2>
+    <p>Adresse: Steinbecker Meile 1, 42103 Wuppertal</p>
+    <p>Öffnungszeiten: Mo – Fr: 07:00 – 17:00</p>
+    <p>Sa: 08:00 – 12:00</p>
+    <p>So: Geschlossen</p>
+    
+    <a href="tel:+49123456789" class="btn-secondary">
+        <i class="fas fa-phone-alt"></i> Jetzt Anrufen
+    </a>
+    
+    <hr>
+    <p>&copy; 2025 Project 0: Aufbereitung. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
     </footer>
 </body>
 </html>

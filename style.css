@@ -1,20 +1,31 @@
+p {
+    line-height: 1.6;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #e0e0e0; /* Основний текст має бути світлим */
+}
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1a1a1a; /* Темний/Майже чорний фон */
+    padding: 0;
     margin: 0;
+    color: #e0e0e0; /* Світло-сірий текст для читабельності */
 }
 h1, h2, h3{
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    color: #e0e0e0;
+    line-height: 1.2;
 }
-header, section, footer {
-  max-width: 1000px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-bottom: 20px;
+section, footer {
+    max-width: 800px; 
+    width: 90%;       
+    margin: 20px auto; 
+    background-color: #262626; /* Трохи світліший темний фон для карток */
+    padding: 20px;
+    /* Тінь на темному фоні виглядає гірше, тому можна її прибрати */
+    box-shadow: none; 
+    border-radius: 8px;
+    border: 1px solid #333; /* Додаємо тонку сіру рамку */
 }
 p, ul{
     line-height: 1.6;
@@ -26,21 +37,127 @@ ul{
     padding-left: 0;
 }
 li {
-    padding-left: 10px;
-    margin-bottom: 5px;
-    border-left: 3px solid #007bff;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 8px; 
+    font-size: 16px;
+    color: #e0e0e0;
+}
+li i{
+    color: #dc3545;
+    margin-right: 8px;
 }
 footer p{
     font-size: 14px;
     color: #666;
 }
 
+
+.hero {
+    background-image: linear-gradient(rgba(0, 0 , 0.4), rgba(0, 0, 0.4)), url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    padding: 0;
+}
+.hero header {
+    background: none;
+    box-shadow: none;
+    padding: 0 40px;
+    min-width: 1000px;
+    margin: 0 auto;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    font-size: 36px;
+}
+.hero header h1{
+    color: white;
+    text-shadow: 1px 1px 4px 4rgba(0, 0, 0, 0.7);
+    font-size: 36px;
+}
+.btn-primary {
+    display: inline-block;
+    background-color: #dc4545;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+.btn-secondary {
+    display: inline-block;
+    background-color: #a78846; /* ЗОЛОТИСТИЙ/КОРИЧНЕВИЙ АКЦЕНТ */
+    color: white; 
+    text-decoration: none; 
+    padding: 12px 30px; 
+    border-radius: 4px; 
+    font-weight: 600; 
+    margin-top: 20px; 
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn-secondary:hover {
+    background-color: #8f743c; 
+}
+.btn-primary:hover {
+    background-color: #c82333;
+}
+.service-container {
+    display: flex; /* Активуємо Flexbox для вирівнювання */
+    gap: 20px; /* Відступ між картками */
+    flex-wrap: wrap; /* Дозволяє карткам переноситися на мобільних */
+    justify-content: space-between; /* Розтягуємо, щоб зайняти весь простір */
+    margin-top: 20px;
+}
+
+.service-card {
+    flex-basis: calc(33.33% - 20px); /* Кожна картка займає 1/3 ширини мінус відступ */
+    background-color: #333; /* Ще темніший фон, як на зразку */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-align: center; /* Центруємо заголовок картки */
+    margin-bottom: 20px; /* Відступ на мобільних */
+}
+
+.service-card h3 {
+    color: white; /* Заголовок на картці білий */
+    margin-top: 0;
+    font-size: 20px;
+}
+.service-card ul {
+    list-style: none;
+    padding-left: 0; 
+    color: #e0e0e0; /* Світло-сірий для основного тексту */
+    text-align: left; /* Вирівнюємо текст вліво (як на зразку) */
+}
+
+/* Стиль для ціни */
+.service-card .price {
+    font-family: 'Poppins', sans-serif;
+    color: #dc3545; /* Червоний акцент для ціни */
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+.service-card ul, .service-card p {
+    color: #e0e0e0; /* Світло-сірий колір, щоб був читабельним на темному фоні */
+}
 @media (max-width: 600px) {
     section {
         flex-direction: column;
-        padding: 15px;
+        gap: 0;
     }
-
+.service-card{ 
+    flex-basis: 100%;
+}
 h1 {
     font-size: 28px;
 }
