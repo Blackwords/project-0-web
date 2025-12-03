@@ -1,174 +1,377 @@
+:root {
+    /* Темна кольорова палітра */
+    --color-primary: #dc3545; /* Червоний акцент для CTA/кнопок */
+    --color-secondary: #c82333; /* Темніший червоний для hover */
+    --color-dark: #1a1a1a; /* Основний фон */
+    --color-medium-dark: #262626; /* Фон секцій/карток */
+    --color-light: #e0e0e0; /* Основний світлий текст */
+    --color-white: #ffffff; /* Чисто білий */
+}
+
+/* Універсальні класи для структури */
+.container {
+    max-width: 1100px; /* Трохи розширюємо для професійного вигляду */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.section-padding {
+    padding: 80px 0;
+}
+
+/* ================================================= */
+/* ОСНОВНІ СТИЛІ */
+/* ================================================= */
+
+body {
+    font-family: 'Roboto', sans-serif; /* Використовуємо Roboto, а не Open Sans */
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: var(--color-dark); 
+    padding: 0;
+    margin: 0;
+    color: var(--color-light); 
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--color-light);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
 p {
     line-height: 1.6;
     font-size: 16px;
     margin-bottom: 15px;
-    color: #e0e0e0; /* Основний текст має бути світлим */
-}
-body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #1a1a1a; /* Темний/Майже чорний фон */
-    padding: 0;
-    margin: 0;
-    color: #e0e0e0; /* Світло-сірий текст для читабельності */
-}
-h1, h2, h3{
-    font-family: 'Poppins', sans-serif;
-    color: #e0e0e0;
-    line-height: 1.2;
+    color: var(--color-light); 
 }
 section, footer {
-    max-width: 800px; 
-    width: 90%;       
-    margin: 20px auto; 
-    background-color: #262626; /* Трохи світліший темний фон для карток */
-    padding: 20px;
-    /* Тінь на темному фоні виглядає гірше, тому можна її прибрати */
-    box-shadow: none; 
-    border-radius: 8px;
-    border: 1px solid #333; /* Додаємо тонку сіру рамку */
+    /* Прибираємо фіксовані max-width та padding, використовуючи .container та .section-padding */
+    margin: 0 auto;
+    background-color: transparent; /* Секції прозорі, фон дає body */
 }
-p, ul{
-    line-height: 1.6;
-    font-size: 16px;
-    margin-bottom: 15px;
+/* Стиль для секцій, які мають відокремлюватися фоном (за потреби) */
+#about {
+    background-color: var(--color-medium-dark);
 }
-ul{
-    list-style: none;
-    padding-left: 0;
-}
-li {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 8px; 
-    font-size: 16px;
-    color: #e0e0e0;
-}
-li i{
-    color: #dc3545;
-    margin-right: 8px;
-}
-footer p{
-    font-size: 14px;
-    color: #666;
-}
-
-
+/* ================================================= */
+/* HERO SECTION */
+/* ================================================= */
 .hero {
-    background-image: linear-gradient(rgba(0, 0 , 0.4), rgba(0, 0, 0.4)), url('hero-bg.jpg');
+    /* Властивості фону залишаємо, як є */
+    background-image: linear-gradient(rgba(0, 0 ,0, 0.5), rgba(0, 0, 0, 0.5)), url();
     background-size: cover;
     background-position: center;
     height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center; /* Центруємо вміст */
     color: white;
     padding: 0;
 }
 .hero header {
+    /* Прибираємо конфліктні стилі */
     background: none;
     box-shadow: none;
-    padding: 0 40px;
-    min-width: 1000px;
-    margin: 0 auto;
+    padding: 0;
+    margin: 0;
     color: white;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-    font-size: 36px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 .hero header h1{
     color: white;
-    text-shadow: 1px 1px 4px 4rgba(0, 0, 0, 0.7);
-    font-size: 36px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    font-size: 48px; /* Робимо заголовок великим */
+    margin-bottom: 20px;
 }
-.btn-primary {
+/* ================================================= */
+/* КНОПКИ */
+/* ================================================= */
+.btn-primary, .btn-secondary {
     display: inline-block;
-    background-color: #dc4545;
-    color: white;
-    text-decoration: none;
     padding: 12px 30px;
-    border-radius: 4px;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-.btn-secondary {
-    display: inline-block;
-    background-color: #a78846; /* ЗОЛОТИСТИЙ/КОРИЧНЕВИЙ АКЦЕНТ */
-    color: white; 
+    border-radius: 5px;
     text-decoration: none; 
-    padding: 12px 30px; 
-    border-radius: 4px; 
-    font-weight: 600; 
-    margin-top: 20px; 
-    transition: background-color 0.3s ease;
-    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin-top: 20px; /* Єдиний відступ */
+}
+
+.btn-primary {
+    background-color: var(--color-primary); 
+    color: var(--color-white); 
+    border-color: var(--color-primary); /* Додаємо рамку кольору кнопки */
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary); 
+    border-color: var(--color-secondary);
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4); /* Додаємо червону тінь */
+}
+
+.btn-secondary {
+    background-color: transparent; 
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .btn-secondary:hover {
-    background-color: #8f743c; 
+    background-color: var(--color-primary); 
+    color: va
+    r(--color-white);
 }
-.btn-primary:hover {
-    background-color: #c82333;
-}
+/* ================================================= */
+/* ПОСЛУГИ (SERVICE CARDS) */
+/* ================================================= */
 .service-container {
-    display: flex; /* Активуємо Flexbox для вирівнювання */
-    gap: 20px; /* Відступ між картками */
-    flex-wrap: wrap; /* Дозволяє карткам переноситися на мобільних */
-    justify-content: space-between; /* Розтягуємо, щоб зайняти весь простір */
-    margin-top: 20px;
+    display: grid; /* Використовуємо Grid для кращої адаптивності */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; 
+    margin-top: 40px;
 }
-
 .service-card {
-    flex-basis: calc(33.33% - 20px); /* Кожна картка займає 1/3 ширини мінус відступ */
-    background-color: #333; /* Ще темніший фон, як на зразку */
-    padding: 25px;
+    background-color: var(--color-medium-dark); /* Фон картки */
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    text-align: center; /* Центруємо заголовок картки */
-    margin-bottom: 20px; /* Відступ на мобільних */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; 
+    border: 1px solid #333; /* Тонка рамка */
 }
-
+.service-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+}
 .service-card h3 {
-    color: white; /* Заголовок на картці білий */
+    color: var(--color-white);
     margin-top: 0;
-    font-size: 20px;
+    font-size: 22px;
 }
 .service-card ul {
     list-style: none;
     padding-left: 0; 
-    color: #e0e0e0; /* Світло-сірий для основного тексту */
-    text-align: left; /* Вирівнюємо текст вліво (як на зразку) */
+    text-align: left;
+}
+.service-card ul li {
+    display: flex;       
+    align-items: center; 
+    margin-bottom: 10px;  
+    color: var(--color-light);
+    font-size: 16px;
+}
+.service-card ul li i {
+    color: var(--color-primary); /* Червоний акцент */
+    margin-right: 10px;
+    min-width: 20px;
+}
+.service-card .price {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-primary); 
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+.price {
+    display: none; /* ✅ Ховаємо всі елементи з класом 'price' */
+    opacity: 0;   /* Додаємо прозорість для плавного відображення */
+    transition: opacity 0.5s ease; /* Додаємо плавний перехід */
 }
 
-/* Стиль для ціни */
-.service-card .price {
-    font-family: 'Poppins', sans-serif;
-    color: #dc3545; /* Червоний акцент для ціни */
-    font-size: 24px;
-    font-weight: 700;
-    margin-top: 15px;
+/* Створюємо клас, який ми будемо додавати через JS для відображення */
+.price-visible {
+    display: block; /* Робимо їх знову видимими */
+    opacity: 1;     /* Робимо повністю непрозорими */
 }
-.service-card ul, .service-card p {
-    color: #e0e0e0; /* Світло-сірий колір, щоб був читабельним на темному фоні */
+
+/* ================================================= */
+/* FOOTER */
+/* ================================================= */
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    text-align: center; /* ✅ Виправлено помилку text-align: c */
+    padding: 40px 0; /* Використовуємо section-padding, або фіксований padding тут */
+}
+footer p {
+    font-size: 14px;
+    color: #999; /* Трохи темніший, ніж основний текст */
+    margin-bottom: 5px;
+}
+footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+footer hr {
+    border-color: #333;
+    margin: 20px auto;
+    width: 80%;
+}
+/* ================================================= */
+/* АДАПТИВНІСТЬ (MOBILE) */
+/* ================================================= */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 50px 0; /* Менші відступи на мобільних */
+    }
+    .container {
+        padding: 0 15px; /* Менші горизонтальні відступи */
+    }
+    h1 {
+        font-size: 36px;
+    }
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    
+    /* Hero Section */
+    .hero {
+        height: auto; 
+        min-height: 300px;
+        padding: 60px 15px;
+    }
+    .hero header h1 {
+        font-size: 32px;
+    }
+
+    /* Service Container */
+    .service-container {
+        /* При minmax(280px, 1fr) на маленьких екранах автоматично буде 1 колонка */
+        gap: 20px;
+    }
+
+    /* Buttons */
+    .btn-primary, .btn-secondary {
+        /* Кнопка займає всю ширину в мобільному меню (якщо вона там є), але тут краще залишити inline-block */
+        display: block; 
+        width: 80%; /* Займає більшу частину ширини */
+        margin: 20px auto; /* Центруємо */
+    }
+    
+    .btn-secondary {
+        margin-top: 10px; 
+    }
+    
+    /* Footer */
+    footer p {
+        font-size: 13px;
+    }
+}
+/* ================================================= */
+/* МОДАЛЬНЕ ВІКНО */
+/* ================================================= */
+
+/* Основний контейнер модального вікна */
+.modal {
+    display: none; /* ✅ ЗАМОВЧУВАННЯ: Приховано */
+    position: fixed; /* Фіксоване положення, щоб бути поверх сторінки */
+    z-index: 1000; /* Дуже високий індекс, щоб перекрити все */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Дозволяє скролити, якщо вікно завелике */
+    background-color: rgba(0, 0, 0, 0.8); /* Напівпрозорий чорний фон */
+}
+
+/* Вміст модального вікна */
+.modal-content {
+    background-color: var(--color-medium-dark); 
+    margin: 10% auto; /* Центруємо його вертикально та горизонтально */
+    padding: 30px;
+    border: 1px solid #333;
+    width: 90%; /* Адаптивна ширина */
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: var(--shadow-medium); /* Додайте тінь, якщо використовуєте змінні */
+    color: var(--color-light);
+}
+
+/* Кнопка закриття (X) */
+.close-btn {
+    color: var(--color-light);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--color-primary); /* Червоний колір при наведенні */
+    text-decoration: none;
+}
+
+/* Стилі для елементів форми */
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="tel"],
+.modal-content input[type="email"],
+.modal-content select,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    box-sizing: border-box; /* Важливо для коректної ширини */
+    background-color: #333;
+    color: var(--color-light);
+}
+
+.modal-content textarea {
+    resize: vertical;
+}
+
+/* Кнопка "Надіслати" */
+.modal-content .btn-primary {
+    width: 100%; /* Робимо кнопку на всю ширину форми */
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px); /* Трохи зміщуємо вниз, щоб створити ефект "виїзду" */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Клас, який додається через JavaScript і робить елемент видимим */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (max-width: 992px) {
+    /* Робимо так, щоб картки займали 50% ширини контейнера (два в ряд) */
+    .service-container {
+        /* minmax(280px, 1fr) зазвичай працює добре, але для гарантії: */
+        grid-template-columns: repeat(2, 1fr); 
+    }
 }
 @media (max-width: 600px) {
-    section {
-        flex-direction: column;
-        gap: 0;
+    .service-container {
+        grid-template-columns: 1fr;
     }
-.service-card{ 
-    flex-basis: 100%;
-}
-h1 {
-    font-size: 28px;
-}
-nav ul{
-    flex-direction: column;
-    align-items: center;
-}
-section, footer { 
-    margin-bottom: 20px;
-}
-header { 
-    margin-bottom: 15px;
-}
+    /* Зменшуємо заголовок Hero-секції ще більше */
+    .hero header h1 {
+        font-size: 28px;
+    }
+    .btn-primary, .btn-secondary{
+        display: block;
+        width: 90%;
+        margin: 15px auto;
+    }
+    .section-padding{
+        padding: 40px 0;
+    }
 }

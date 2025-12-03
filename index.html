@@ -6,15 +6,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="hero">
+    <div class="header-content">
     <header>
         <h1>Professionelle Fahrzeugaufbereitung in </h1>
-        <a href="#" class="btn-primary">Termin vereinbaren</a>
+        <a href="#" class="btn-primary" onclick="modal.style.display='block'; return false;">Termin vereinbaren</a>
+        <a href="#services" class="btn-secondary">Unsere Deinstleistungen</a>
     </header>
     </div>
     <section>
@@ -27,17 +31,17 @@
     
     <div class="service-container">
         
-        <div class="service-card">
+        <div class="service-card fade-in">
             <h3>Basic Pflege</h3>
             <ul>
-                <li><i class="fas fa-hand-sparkles"></i> Handwäsche</li>
-                <li><i class="fas fa-air-freshener"></i> Innenraum saugen</li>
-                <li><i class="fas fa-tint"></i> Scheibenreinigung</li>
+                <li><i class="fa-solid fa-hand-sparkles"></i> Handwäsche</li>
+                <li><i class="fa-solid fa-broom"></i> Innenraum saugen</li>
+                <li><i class="fa-solid fa-tint"></i> Scheibenreinigung</li>
             </ul>
             <p class="price">30 €</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card fade-in">
             <h3>Intensiv Pflege</h3>
             <ul>
                 <li><i class="fas fa-car-side"></i> Gründliche Handwäsche</li>
@@ -48,7 +52,7 @@
             <p class="price">60 - 100 €</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card fade-in">
             <h3>Glanz & Schutz</h3>
             <ul>
                 <li><i class="fas fa-star"></i> Premium Handwäsche</li>
@@ -58,7 +62,7 @@
             </ul>
             <p class="price">80 - 110 €</p>
         </div>
-        <div class="service-card">
+        <div class="service-card fade-in">
             <h3>Komplettaufbereitung</h3>
             <ul>
                 <li><i class="fas fa-handshake"></i> Das "Rundum-Sorglos"-Paket</li>
@@ -85,5 +89,36 @@
     <hr>
     <p>&copy; 2025 Project 0: Aufbereitung. Alle Rechte vorbehalten. | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
     </footer>
+    <div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span> <h2>Termin vereinbaren</h2>
+        <p>Bitte füllen Sie das Formular aus, und wir werden Sie umgehend kontaktieren.</p>
+
+        <form id="bookingForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="phone">Telefonnummer:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="email">E-Mail (optional):</label>
+            <input type="email" id="email" name="email">
+            
+            <label for="service">Gewünschte Dienstleistung:</label>
+            <select id="service" name="service">
+                <option value="basic">Basic Pflege</option>
+                <option value="intensiv">Intensiv Pflege</option>
+                <option value="glanz">Glanz & Schutz</option>
+                <option value="komplett">Komplettaufbereitung</option>
+            </select>
+            
+            <label for="message">Nachricht (optional):</label>
+            <textarea id="message" name="message"></textarea>
+            
+            <button type="submit" class="btn-primary">Anfrage senden</button>
+        </form>
+    </div>
+</div>
+    <script src="script.js"></script>
 </body>
 </html>
