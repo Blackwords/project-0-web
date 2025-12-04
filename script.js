@@ -1,57 +1,90 @@
+// =================================================
+// 1. ОГОЛОШЕННЯ ЗМІННИХ (Всі в одному місці)
+// =================================================
+
 // 1. Знаходимо елементи (Змінні)
-// Шукаємо модальне вікно за його ID, яке ми додали в HTML
-const modal = document.getElementById("bookingModal"); 
+// Шукаємо модальне вікно за його ID
+const modal = document.getElementById("bookingModal"); // <--- ЦЕЙ РЯДОК РОБИТЬ modal ДОСТУПНИМ
 // Шукаємо червону кнопку "Termin vereinbaren" за її класом
 const btn = document.querySelector(".btn-primary"); 
 // Шукаємо кнопку закриття "X"
 const span = document.getElementsByClassName("close-btn")[0]; 
+// Змінна форми
+const bookingForm = document.getElementById("bookingForm");
+// Змінна вмісту модального вікна
+const modalContent = document.querySelector(".modal-content");
 
-// 2. ФУНКЦІЯ ВІДКРИТТЯ: Коли натискаємо на кнопку
+// =================================================
+// 2-4. Функціонал модального вікна 
+// =================================================
+
+// 2. ФУНКЦІЯ ВІДКРИТТЯ
 btn.onclick = function() {
-  modal.style.display = "block"; // Робимо модальне вікно видимим
+  modal.style.display = "block";
 }
 
 // 3. ФУНКЦІЯ ЗАКРИТТЯ: Коли натискаємо на "X"
 span.onclick = function() {
-  modal.style.display = "none"; // Ховаємо модальне вікно
+  modal.style.display = "none";
 }
 
 // 4. ФУНКЦІЯ ЗАКРИТТЯ: Коли натискаємо поза вікном
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+  if (event.target == modal) { // <--- ТУТ modal ПРАЦЮЄ, БО ОГОЛОШЕНИЙ ВИЩЕ
+    modal.style.display = "none";
+  }
 }
-// 5. Знаходимо елементи форми
-const bookingForm = document.getElementById("bookingForm");
-const modalContent = document.querySelector(".modal-content");
-// 6. ФУНКЦІЯ ОБРОБКИ ВІДПРАВКИ ФОРМИ
-bookingForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // ✅ Запобігаємо стандартній відправці форми (перезавантаженню сторінки)
 
-    // Імітація надсилання даних (тут має бути код для відправки на сервер)
-    console.log("Formulardaten werden gesendet...");
+
+//6. ФУНКЦІЯ ОБРОБКИ ВІДПРАВКИ ФОРМИ (AJAX/FETCH - ВИПРАВЛЕНО)
+bookingForm.addEventListener('submit', async function(event) {
+    event.preventDefault(); // ✅ Зупиняємо стандартну відправку
+
+    const form = event.target;
+    const data = new FormData(form);
+    
+    // ВАЖЛИВО: Form action вже має містити Formspree URL.
+    const formspreeUrl = form.action; 
+
+    try {
+        const response = await fetch(formspreeUrl, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json' // Formspree вимагає цей заголовок для AJAX
+            }
+        });
+
+        if (response.ok) { // 200 OK
+            // Успішне відправлення
+            form.reset(); // Очищуємо форму
+            
+            // 7. ПОКАЗУЄМО ПОВІДОМЛЕННЯ ПРО УСПІХ
+            modalContent.innerHTML = `
+                <span class="close-btn" onclick="modal.style.display='none';">&times;</span> 
+                <h2 style="color: var(--color-primary);">Vielen Dank!</h2>
+                <p>Ihre Anfrage zur Fahrzeugaufbereitung wurde erfolgreich gesendet.</p>
+                <p>Wir werden Sie in Kürze unter der angegebenen Telefonnummer kontaktieren, um den Termin zu bestätigen.</p>
+                <button class="btn-primary" onclick="modal.style.display='none';" style="width: 100%;">OK</button>
+            `;
+            
+            // Додатково оновлюємо обробник закриття для нової кнопки (ТЕПЕР ТІЛЬКИ ОДИН РАЗ)
+           
+           
+        } else {
+            // Помилка відправки (наприклад, помилка валідації на Formspree)
+            alert("Beim Senden Ihrer Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.");
+        }
+    } catch (error) {
+        console.error("Помилка відправки форми:", error);
+        alert("Ein unerwarteter Fehler ist aufgetreten.");
+    }
+    
+    // Додаємо клас .price-visible (якщо потрібно)
     const prices = document.querySelectorAll('.price');
     prices.forEach(price => {
         price.classList.add('price-visible');
     });
-    // 7. ЗАКРИВАЄМО ФОРМУ ТА ПОКАЗУЄМО ПОВІДОМЛЕННЯ
-    // Очищуємо вміст модального вікна
-    modalContent.innerHTML = `
-        <span class="close-btn" onclick="modal.style.display='none';">&times;</span> 
-        <h2 style="color: var(--color-primary);">Vielen Dank!</h2>
-        <p>Ihre Anfrage zur Fahrzeugaufbereitung wurde erfolgreich gesendet.</p>
-        <p>Wir werden Sie in Kürze unter der angegebenen Telefonnummer kontaktieren, um den Termin zu bestätigen.</p>
-        <button class="btn-primary" onclick="modal.style.display='none';" style="width: 100%;">OK</button>
-    `;
-    
-    // Перевіряємо, чи існує кнопка закриття після заміни HTML
-    const newCloseBtn = modalContent.querySelector(".close-btn");
-    if (newCloseBtn) {
-        newCloseBtn.onclick = function() {
-            modal.style.display = "none";
-        };
-    }
 });
 // =================================================
 // 8. ПЛАВНИЙ СКРОЛІНГ (Smooth Scrolling)
